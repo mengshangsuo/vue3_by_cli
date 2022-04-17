@@ -9,7 +9,10 @@
     "lint:fix": "vue-cli-service lint --fix"
   },
   "dependencies": {
+    "@vueuse/core": "^8.2.6",
+    "axios": "^0.26.1",
     "core-js": "^3.8.3",
+    "element-plus": "^2.1.9",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
@@ -33,7 +36,9 @@
     "lint-staged": "^11.1.2",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
-    "typescript": "~4.5.5"
+    "typescript": "~4.5.5",
+    "unplugin-auto-import": "^0.7.1",
+    "unplugin-vue-components": "^0.19.3"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
