@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:report": "vue-cli-service build --report",
     "lint": "vue-cli-service lint",
     "lint:fix": "vue-cli-service lint --fix"
   },
@@ -13,6 +14,7 @@
     "axios": "^0.26.1",
     "core-js": "^3.8.3",
     "element-plus": "^2.1.9",
+    "pinia": "^2.0.13",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
@@ -38,7 +40,8 @@
     "sass-loader": "^12.0.0",
     "typescript": "~4.5.5",
     "unplugin-auto-import": "^0.7.1",
-    "unplugin-vue-components": "^0.19.3"
+    "unplugin-vue-components": "^0.19.3",
+    "webpack-bundle-analyzer": "^4.5.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
