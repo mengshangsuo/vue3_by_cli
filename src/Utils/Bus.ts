@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 //  发布订阅者模式
 
 type BusClass = {
@@ -13,20 +14,24 @@ type ListObj = {
 }
 
 class Bus implements BusClass {
-  list: ListObj
-  constructor() {
-    this.list = {}
+  listObj: ListObj
+  constructor () {
+    this.listObj = {}
   }
 
-  emit(name: string, ...args: Array<any>) {
-    let fns: Array<Function> = this.list[name]
-    fns.forEach((fn) => fn.apply(this, args))
+  emit (name: string, ...args: Array<any>) {
+    const fns: Array<Function> = this.listObj[name];
+    // 将派发过来的事件的对应的回调函数进行执行；
+    fns.forEach((fn) => fn.apply(this, args));
   }
 
-  on(name: string, callback: Function) {
-    let fns: Array<Function> = this.list[name] || []
-    fns.push(callback)
-    this.list[name] = fns
+  on (name: string, callback: Function) {
+    // 注册事件，将回调函数存储在对象的上，是个数组；
+    const fns: Array<Function> = this.listObj[name] || [];
+    // 存储
+    fns.push(callback);
+    // 赋值  更新
+    this.listObj[name] = fns;
   }
 }
 
