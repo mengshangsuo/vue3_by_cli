@@ -104,7 +104,7 @@ axiosInstance.interceptors.response.use(
       if (error?.response?.status === 401) {
         // token或者登陆失效情况下跳转到登录页面，根据实际情况，在这里可以根据不同的响应错误结果，做对应的事。这里我以401判断为例
         // 针对框架跳转到登陆页面
-        router.push('/');
+        router.push("/");
       } else if (error?.response?.status === 404) {
         // message.error("页面出错");
       }

@@ -2,21 +2,21 @@
 //  发布订阅者模式
 
 type BusClass = {
-  emit: (name: string) => void
+  emit: (name: string) => void;
 
-  on: (name: string, callback: Function) => void
-}
+  on: (name: string, callback: Function) => void;
+};
 
-type ParmsKey = string | number | symbol
+type ParmsKey = string | number | symbol;
 
 type ListObj = {
-  [key: ParmsKey]: Array<Function>
-}
+  [key: ParmsKey]: Array<Function>;
+};
 
 class Bus implements BusClass {
-  listObj: ListObj
+  listObj: ListObj;
   constructor () {
-    this.listObj = {}
+    this.listObj = {};
   }
 
   emit (name: string, ...args: Array<any>) {
@@ -35,4 +35,4 @@ class Bus implements BusClass {
   }
 }
 
-export default new Bus()
+export default new Bus();

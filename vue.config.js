@@ -3,19 +3,21 @@ const AutoImport = require("unplugin-auto-import/webpack");
 const Components = require("unplugin-vue-components/webpack");
 const { ElementPlusResolver } = require("unplugin-vue-components/resolvers");
 
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = defineConfig({
+  lintOnSave: false,
   transpileDependencies: true,
   css: {
     loaderOptions: {
       sass: {
-        additionalData: '@import "@/css/common.scss";'
-      }
+        additionalData: '@import "@/css/common.scss";',
+      },
       // scss: {
       //   additionalData: '@import "@/assets/scss/theme.scss";'
       // }
-    }
+    },
   },
   configureWebpack: (config) => {
     if (process?.env?.NODE_ENV === "production") {
@@ -27,13 +29,13 @@ module.exports = defineConfig({
     return {
       plugins: [
         AutoImport({
-          resolvers: [ElementPlusResolver()]
+          resolvers: [ElementPlusResolver()],
         }),
         Components({
-          resolvers: [ElementPlusResolver()]
+          resolvers: [ElementPlusResolver()],
         }),
         new BundleAnalyzerPlugin(),
-      ]
+      ],
     };
-  }
+  },
 });
