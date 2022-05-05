@@ -1,10 +1,58 @@
 import router from "@/router";
-import axios, { AxiosRequestConfig, AxiosRequestHeaders } from "axios";
-import { publicIp } from "./apiIp";
-// import { message } from "antd";
-// import { history } from "../router/indexRouter";
-// import { message } from "ant-design-vue/types/ant-design-vue";
-// import router from "../router/routerconfig";
+import axios, { AxiosRequestConfig, } from "axios";
+
+/*
+{
+  // 路径url
+  url: '/user',
+
+  // 请求方法，默认get
+  method: 'get',
+
+  //基础url，最终请求的url是 baseURL+url拼接，所以再全局设置默认，可以使得发送请求时的url变得简洁
+  baseURL: 'https://some-domain.com/api/',
+
+  //设置请求头
+  headers: {'X-Requested-With': 'XMLHttpRequest'},
+
+  //设置请求url的query参数，可以使得url简洁。
+  //比如url是https://some-domain.com/api/user  然后params如下设置，那么最终的url是：
+  //https://some-domain.com/api/user?ID=12345&name=Jack
+  params: {
+    ID: 12345,
+    name:"Jack"
+  },
+
+ //设置请求体
+  data: {
+    firstName: 'Fred'
+  },
+
+  //设置请求的另外一种格式，不过这个是直接设置字符串的
+  data: 'Country=Brasil&City=Belo Horizonte',
+
+ //请求超时，单位毫秒，默认0，不超时。
+  timeout: 1000,
+
+  //响应数据类型，默认json
+  responseType: 'json',
+
+  //响应数据的编码规则，默认utf-8
+  responseEncoding: 'utf8',
+
+	//响应体的最大长度
+  maxContentLength: 2000,
+
+  // 请求体的最大长度
+  maxBodyLength: 2000,
+
+  //设置响应状态码为多少时是成功，调用resolve，否则调用reject失败
+  //默认是大于等于200，小于300
+  validateStatus: function (status) {
+    return status >= 200 && status < 300;
+  },
+
+*/
 
 // 头部配置项
 const headers = {
@@ -21,7 +69,7 @@ const headers = {
 
 // 创建axios实例
 export const axiosInstance = axios.create({
-  baseURL: publicIp,
+  baseURL: '/',
   timeout: 1000,
   headers: headers,
 });

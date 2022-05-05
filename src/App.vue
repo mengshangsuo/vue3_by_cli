@@ -1,9 +1,9 @@
 <template>
-	<nav>
+	<!-- <nav>
 		<router-link to="/">Home</router-link> |
 		<router-link to="/about">About</router-link>
 		<button @click="toPage('/detail')">Detail</button>
-	</nav>
+	</nav> -->
 	<router-view />
 </template>
 
@@ -12,7 +12,7 @@
 
 	const router = useRouter();
 	const toPage = (url: string) => {
-		router.push(url);
+		router.push({ path: url, query: { name: "name11", id: 2 } });
 	};
 </script>
 

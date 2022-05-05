@@ -4,6 +4,11 @@ import HomeView from "../views/HomeView.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
+    name: "login",
+    component: import(/* webpackChunkName: "about" */ "@/views/Login/index.vue"),
+  },
+  {
+    path: "/home",
     name: "home",
     component: HomeView,
   },
@@ -30,6 +35,15 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+});
+
+const whiteList = ['/'];
+router.beforeEach((to, from, next) => {
+  if (whiteList.includes(to.path) || localStorage.getItem('token')) {
+    next();
+  } else {
+    next('/');
+  }
 });
 
 export default router;

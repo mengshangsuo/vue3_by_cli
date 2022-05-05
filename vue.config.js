@@ -19,14 +19,30 @@ module.exports = defineConfig({
       // }
     },
   },
+//  webpack配置
   configureWebpack: (config) => {
+    // console.log('process.argv', process.argv);
+    // console.log('config', config);
+    // console.log('process.env.NODE_ENV', process.env.NODE_ENV);
+
     if (process?.env?.NODE_ENV === "production") {
       // 为生产环境修改配置...
-    } else {
+    } else if (process?.env?.NODE_ENV === "development") {
       // 为开发环境修改配置...
     }
 
     return {
+      resolve: {
+        extensions: ['.vue', '.ts'], // 后缀名省略配置
+        alias: {
+            // '@': resolve('./src')  默认配置了
+            common: '@/common',
+            assets: '@/assets',
+            components: '@/components',
+            views: '@/views'
+        }
+      },
+
       plugins: [
         AutoImport({
           resolvers: [ElementPlusResolver()],
@@ -34,6 +50,7 @@ module.exports = defineConfig({
         Components({
           resolvers: [ElementPlusResolver()],
         }),
+        // 打包时候的性能分析
         new BundleAnalyzerPlugin(),
       ],
     };

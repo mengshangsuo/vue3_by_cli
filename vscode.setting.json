@@ -1,8 +1,5 @@
 {
   "window.zoomLevel": 2,
-  "[vue]": {
-    "editor.defaultFormatter": "johnsoncodehk.volar"
-  },
   "vetur.validation.template": false,
   "vetur.validation.interpolation": false,
 
